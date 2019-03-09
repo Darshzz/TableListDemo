@@ -14,6 +14,10 @@
 		7D89BD4F2233A088009B3916 /* TableListDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD4E2233A088009B3916 /* TableListDemoTests.swift */; };
 		7D89BD5B2233A130009B3916 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD5A2233A130009B3916 /* ListViewController.swift */; };
 		7D89BD5F2233A173009B3916 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD5E2233A173009B3916 /* ListViewCell.swift */; };
+		7D89BD622233B317009B3916 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD612233B317009B3916 /* ListViewModel.swift */; };
+		7D89BD642233B33C009B3916 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD632233B33C009B3916 /* ListModel.swift */; };
+		7D89BD672233C863009B3916 /* ListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD662233C863009B3916 /* ListViewModelProtocol.swift */; };
+		7D89BD692233C8EB009B3916 /* ListVMDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D89BD682233C8EB009B3916 /* ListVMDelegate.swift */; };
 		D41ED2B0AE9988EAC8C298E3 /* Pods_TableListDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297FACB574245D8EE34A12BB /* Pods_TableListDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +44,10 @@
 		7D89BD502233A088009B3916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D89BD5A2233A130009B3916 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		7D89BD5E2233A173009B3916 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		7D89BD612233B317009B3916 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		7D89BD632233B33C009B3916 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		7D89BD662233C863009B3916 /* ListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelProtocol.swift; sourceTree = "<group>"; };
+		7D89BD682233C8EB009B3916 /* ListVMDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVMDelegate.swift; sourceTree = "<group>"; };
 		AA5752350A658CC753814DF0 /* Pods_TableListDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableListDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AE73AFD5023D5CCEDA578B /* Pods-TableListDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableListDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableListDemo/Pods-TableListDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E1A9AE22B401A743FF4D117D /* Pods-TableListDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableListDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableListDemoTests/Pods-TableListDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +131,8 @@
 		7D89BD592233A10D009B3916 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7D89BD652233C809009B3916 /* Protocols */,
+				7D89BD6A2233D581009B3916 /* Models */,
 				7D89BD5A2233A130009B3916 /* ListViewController.swift */,
 			);
 			path = ViewControllers;
@@ -149,6 +159,24 @@
 			children = (
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		7D89BD652233C809009B3916 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7D89BD662233C863009B3916 /* ListViewModelProtocol.swift */,
+				7D89BD682233C8EB009B3916 /* ListVMDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7D89BD6A2233D581009B3916 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D89BD612233B317009B3916 /* ListViewModel.swift */,
+				7D89BD632233B33C009B3916 /* ListModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A131E34E56C3A8073A6BEDA6 /* Frameworks */ = {
@@ -334,7 +362,11 @@
 			files = (
 				7D89BD5B2233A130009B3916 /* ListViewController.swift in Sources */,
 				7D89BD5F2233A173009B3916 /* ListViewCell.swift in Sources */,
+				7D89BD692233C8EB009B3916 /* ListVMDelegate.swift in Sources */,
+				7D89BD622233B317009B3916 /* ListViewModel.swift in Sources */,
 				7D89BD3A2233A087009B3916 /* AppDelegate.swift in Sources */,
+				7D89BD672233C863009B3916 /* ListViewModelProtocol.swift in Sources */,
+				7D89BD642233B33C009B3916 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
