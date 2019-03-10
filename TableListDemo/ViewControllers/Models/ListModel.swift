@@ -10,12 +10,12 @@ import Foundation
 
 struct DataModel: Decodable {
     
-    let title: String
-    let rows: [Rows]
+    let title: String?
+    let rows: [ListModel]?
 }
 
-struct Rows: Decodable {
-    let title: String!
-    let description: String!
-    let imageHref: String!
+struct ListModel: Decodable {
+    let title: String?
+    let description: String?
+    let imageHref: String?
 }

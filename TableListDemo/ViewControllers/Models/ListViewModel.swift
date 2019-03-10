@@ -11,7 +11,7 @@ import Alamofire
 
 class ListViewModel: ListViewModelProtocol {
     
-    var users: [Rows]? {
+    var dataModel: DataModel? {
         didSet {
             listVMDelegate.userDataChanged(nil)
         }
@@ -24,7 +24,7 @@ class ListViewModel: ListViewModelProtocol {
     }
     
     var numberOfItems: Int! {
-        return users?.count ?? 0
+        return dataModel?.rows?.count ?? 0
     }
     
     private func getUsersList() {
@@ -40,16 +40,21 @@ class ListViewModel: ListViewModelProtocol {
                     weakSelf.listVMDelegate.userDataChanged(response.result.error.debugDescription)
                     return
                 }
-
-                do {
-                    _ = try JSONDecoder().decode(DataModel.self, from: response.data!)
-                    weakSelf.listVMDelegate.userDataChanged("Unable to decode")
-                }
-                catch let error {
-                    print("Unable to decode")
-                weakSelf.listVMDelegate.userDataChanged(error.localizedDescription)
+                
+                if let latinString = String(data: response.data!, encoding: String.Encoding.isoLatin1) {
+                    let dataUT8 = latinString.data(using: String.Encoding.utf8)
+                    do {
+                        let listData = try JSONDecoder().decode(DataModel.self, from: dataUT8!)
+                        print(listData.title ?? "")
+                        print(listData.rows ?? "")
+                        
+                        weakSelf.dataModel = listData
+                    }
+                    catch let error {
+                        print("Unable to decode")
+                        weakSelf.listVMDelegate.userDataChanged(error.localizedDescription)
+                    }
                 }
         }
     }
-    
 }
