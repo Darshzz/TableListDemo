@@ -25,7 +25,7 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListVMDelegate {
-    
-    func userDataChanged() {
+    func userDataChanged(_ error: String?) {
+        print(error ?? "nil")
     }
 }

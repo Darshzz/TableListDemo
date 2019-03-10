@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class ListViewModel: ListViewModelProtocol {
     
-    var users: [ListModel]? {
+    var users: [Rows]? {
         didSet {
-            listVMDelegate.userDataChanged()
+            listVMDelegate.userDataChanged(nil)
         }
     }
     
@@ -27,7 +28,28 @@ class ListViewModel: ListViewModelProtocol {
     }
     
     private func getUsersList() {
-        listVMDelegate.userDataChanged()
+        
+        Alamofire.request(URL(string: baseUrl)!,
+                          method: .get,
+                          parameters: nil)
+            .validate().responseData { [weak self] (response) in
+                
+                guard let weakSelf = self else { return }
+                guard response.result.isSuccess else {
+                    print("Error while fetching remote rooms")
+                    weakSelf.listVMDelegate.userDataChanged(response.result.error.debugDescription)
+                    return
+                }
+
+                do {
+                    _ = try JSONDecoder().decode(DataModel.self, from: response.data!)
+                    weakSelf.listVMDelegate.userDataChanged("Unable to decode")
+                }
+                catch let error {
+                    print("Unable to decode")
+                weakSelf.listVMDelegate.userDataChanged(error.localizedDescription)
+                }
+        }
     }
     
 }

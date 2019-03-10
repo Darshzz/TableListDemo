@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ListViewModelProtocol {
-    var users: [ListModel]? { get set }
+    var users: [Rows]? { get set }
     var listVMDelegate: ListVMDelegate! { get set }
     var numberOfItems: Int! { get }
 }

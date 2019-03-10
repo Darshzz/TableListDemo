@@ -10,7 +10,7 @@ import Foundation
 
 protocol ListVMDelegate {
     static var reuseIdentifier: String { get }
-    func userDataChanged()
+    func userDataChanged(_ error: String?)
 }
 
 extension ListVMDelegate {
