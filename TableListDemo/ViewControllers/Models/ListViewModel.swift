@@ -27,7 +27,7 @@ class ListViewModel: ListViewModelProtocol {
         return dataModel?.rows?.count ?? 0
     }
     
-    private func getUsersList() {
+    func getUsersList() {
         
         Alamofire.request(URL(string: baseUrl)!,
                           method: .get,
