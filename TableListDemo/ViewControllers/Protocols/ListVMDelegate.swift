@@ -7,14 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ListVMDelegate {
-    static var reuseIdentifier: String { get }
     func userDataChanged(_ error: String?)
-}
-
-extension ListVMDelegate {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
 }

@@ -12,10 +12,10 @@ class ListViewController: UIViewController {
 
     var listVM = ListViewModel()
     
-    let tableView : UITableView = {
-        let t = UITableView()
-        t.translatesAutoresizingMaskIntoConstraints = false
-        return t
+    let tableView: UITableView = {
+        let tble = UITableView()
+        tble.translatesAutoresizingMaskIntoConstraints = false
+        return tble
     }()
     
     lazy var refreshControl: UIRefreshControl = {
@@ -54,7 +54,7 @@ class ListViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
         
         // register a defalut cell
-        tableView.register(ListViewCell.self, forCellReuseIdentifier: ListViewController.reuseIdentifier)
+        tableView.register(ListViewCell.self)
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -71,7 +71,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListViewController.reuseIdentifier, for: indexPath) as! ListViewCell
+        let cell: ListViewCell = tableView.dequeueReusableCell(for: indexPath)
         cell.selectionStyle = .none
         
         cell.configureCell(listVM.dataModel?.rows?[indexPath.row])

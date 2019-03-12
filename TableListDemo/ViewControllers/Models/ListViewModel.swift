@@ -13,6 +13,7 @@ class ListViewModel: ListViewModelProtocol {
     
     var dataModel: DataModel? {
         didSet {
+            filterArrayItems()
             listVMDelegate.userDataChanged(nil)
         }
     }
@@ -28,7 +29,6 @@ class ListViewModel: ListViewModelProtocol {
     }
     
     func getUsersList() {
-        
         Alamofire.request(URL(string: baseUrl)!,
                           method: .get,
                           parameters: nil)
@@ -36,7 +36,6 @@ class ListViewModel: ListViewModelProtocol {
                 
                 guard let weakSelf = self else { return }
                 guard response.result.isSuccess else {
-                    print("Error while fetching remote rooms")
                     weakSelf.listVMDelegate.userDataChanged(response.result.error.debugDescription)
                     return
                 }
@@ -45,16 +44,27 @@ class ListViewModel: ListViewModelProtocol {
                     let dataUT8 = latinString.data(using: String.Encoding.utf8)
                     do {
                         let listData = try JSONDecoder().decode(DataModel.self, from: dataUT8!)
-                        print(listData.title ?? "")
-                        print(listData.rows ?? "")
-                        
                         weakSelf.dataModel = listData
-                    }
-                    catch let error {
-                        print("Unable to decode")
+                    }catch let error {
                         weakSelf.listVMDelegate.userDataChanged(error.localizedDescription)
                     }
                 }
         }
     }
+    
+    func filterArrayItems() {
+        let emptyItems = dataModel?.rows?.filter({ $0.title == nil  && $0.imageHref == nil })
+        _ = emptyItems?.map({ dataModel?.rows?.remove(object: $0) })
+        
+    }
+}
+
+extension Array where Element: Equatable {
+    
+    // Remove first collection element that is equal to the given `object`:
+    mutating func remove(object: Element) {
+        guard let index = index(of: object) else {return}
+        remove(at: index)
+    }
+    
 }
