@@ -56,14 +56,14 @@ class ListViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             imgView.widthAnchor.constraint(equalToConstant: 70),
             imgView.heightAnchor.constraint(equalToConstant: 70),
-            imgView.leftAnchor.constraint(equalTo: marginGuide.leftAnchor, constant: 7),
+            imgView.leftAnchor.constraint(equalTo: marginGuide.leftAnchor, constant: 0),
             imgView.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 7),
             imgBottomConstraint
             ])
         
         NSLayoutConstraint.activate([
             lblTitle.heightAnchor.constraint(equalToConstant: 21),
-            lblTitle.leftAnchor.constraint(equalTo: imgView.rightAnchor, constant: 5),
+            lblTitle.leftAnchor.constraint(equalTo: imgView.rightAnchor, constant: 7),
             lblTitle.rightAnchor.constraint(equalTo: marginGuide.rightAnchor, constant: 5),
             lblTitle.topAnchor.constraint(equalTo: imgView.topAnchor, constant: 0),
             lblTitle.bottomAnchor.constraint(equalTo: lblDescription.topAnchor, constant: 0)
@@ -73,7 +73,7 @@ class ListViewCell: UITableViewCell {
         lblBottomConstraint.priority = UILayoutPriority(rawValue: 998)
         
         NSLayoutConstraint.activate([
-            lblDescription.leftAnchor.constraint(equalTo: imgView.rightAnchor, constant: 5),
+            lblDescription.leftAnchor.constraint(equalTo: imgView.rightAnchor, constant: 7),
             lblDescription.rightAnchor.constraint(equalTo: marginGuide.rightAnchor, constant: 5),
             lblBottomConstraint
             ])
@@ -98,8 +98,10 @@ class ListViewCell: UITableViewCell {
         if details.description == nil {
             lblDescription.text = "Description not available."
             imgBottomConstraint.priority = UILayoutPriority(rawValue: 999)
-            self.setNeedsLayout()
+        }else{
+            imgBottomConstraint.priority = UILayoutPriority(rawValue: 500)
         }
+        self.setNeedsLayout()
     }
 }
 

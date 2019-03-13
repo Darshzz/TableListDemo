@@ -23,7 +23,7 @@ class ListViewController: UIViewController {
         refreshControl.addTarget(self, action:
             #selector(handleRefresh(_:)),
                                  for: .valueChanged)
-        refreshControl.tintColor = UIColor.red
+        refreshControl.tintColor = UIColor.gray
         
         return refreshControl
     }()
@@ -52,6 +52,7 @@ class ListViewController: UIViewController {
         
         tableView.estimatedRowHeight = 150 // Just an estimated value for calculating scroll indicator
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         
         // register a defalut cell
         tableView.register(ListViewCell.self)
@@ -87,6 +88,7 @@ extension ListViewController: ListVMDelegate {
             self.title = listVM.dataModel?.title
             tableView.reloadData()
             refreshControl.endRefreshing()
+            tableView.separatorStyle = .singleLine
         }
     }
 }

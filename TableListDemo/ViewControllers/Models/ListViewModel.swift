@@ -29,10 +29,14 @@ class ListViewModel: ListViewModelProtocol {
     }
     
     func getUsersList() {
+        // Show laoder untill api returns a response.
+        HudView.show()
         Alamofire.request(URL(string: baseUrl)!,
                           method: .get,
                           parameters: nil)
             .validate().responseData { [weak self] (response) in
+                // Kill loader when api returns response.
+                HudView.kill()
                 
                 guard let weakSelf = self else { return }
                 guard response.result.isSuccess else {
