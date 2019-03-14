@@ -38,9 +38,13 @@ class ListViewController: UIViewController {
         // add the refreshControl to self.view
         self.tableView.addSubview(self.refreshControl)
         
+        setUpTableView()
+    }
+    
+    private func setUpTableView() {
         // constrain the table view to 0-pts on the top,
         //  0-pts on left, right and bottom (just to demonstrate size/position)
-
+        
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true

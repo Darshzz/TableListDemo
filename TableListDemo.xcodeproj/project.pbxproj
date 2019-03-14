@@ -22,9 +22,9 @@
 		9443A4E92237B25100F9D475 /* TableView+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443A4E82237B25100F9D475 /* TableView+Addition.swift */; };
 		9443A4EC2237B2A500F9D475 /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9443A4EB2237B2A500F9D475 /* ReusableViewProtocol.swift */; };
 		944773532237EC2200FE8370 /* Custom+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944773522237EC2200FE8370 /* Custom+UIView.swift */; };
+		94CCD58C223A3BBE00438E5C /* Array+Addition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CCD58B223A3BBE00438E5C /* Array+Addition.swift */; };
 		94EED5FC2238E9FD00612DAB /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EED5FA2238E9FD00612DAB /* HudView.swift */; };
 		94EED5FE2238EA7700612DAB /* UIApplication+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EED5FD2238EA7700612DAB /* UIApplication+Hierarchy.swift */; };
-		94EED6012238EB0B00612DAB /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94EED6002238EB0B00612DAB /* Color.swift */; };
 		D41ED2B0AE9988EAC8C298E3 /* Pods_TableListDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297FACB574245D8EE34A12BB /* Pods_TableListDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,9 +59,9 @@
 		9443A4E82237B25100F9D475 /* TableView+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Addition.swift"; sourceTree = "<group>"; };
 		9443A4EB2237B2A500F9D475 /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
 		944773522237EC2200FE8370 /* Custom+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Custom+UIView.swift"; sourceTree = "<group>"; };
+		94CCD58B223A3BBE00438E5C /* Array+Addition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Addition.swift"; sourceTree = "<group>"; };
 		94EED5FA2238E9FD00612DAB /* HudView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		94EED5FD2238EA7700612DAB /* UIApplication+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Hierarchy.swift"; sourceTree = "<group>"; };
-		94EED6002238EB0B00612DAB /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		AA5752350A658CC753814DF0 /* Pods_TableListDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TableListDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0AE73AFD5023D5CCEDA578B /* Pods-TableListDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableListDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TableListDemo/Pods-TableListDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E1A9AE22B401A743FF4D117D /* Pods-TableListDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableListDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableListDemoTests/Pods-TableListDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				7D89BD5E2233A173009B3916 /* ListViewCell.swift */,
-				9443A4E72237B23A00F9D475 /* Extensions */,
 			);
 			path = UITableCells;
 			sourceTree = "<group>";
@@ -172,9 +171,9 @@
 		7D89BD602233A17F009B3916 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				94EED5FF2238EAFD00612DAB /* Util */,
 				94EED5F72238E9EA00612DAB /* SubClasses */,
 				9443A4EA2237B29200F9D475 /* Protocols */,
+				9443A4E72237B23A00F9D475 /* Extensions */,
 				7D89BD6B2233F5A9009B3916 /* Constant.swift */,
 			);
 			path = Misc;
@@ -204,6 +203,7 @@
 				94EED5FD2238EA7700612DAB /* UIApplication+Hierarchy.swift */,
 				944773522237EC2200FE8370 /* Custom+UIView.swift */,
 				9443A4E82237B25100F9D475 /* TableView+Addition.swift */,
+				94CCD58B223A3BBE00438E5C /* Array+Addition.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,14 +230,6 @@
 				94EED5FA2238E9FD00612DAB /* HudView.swift */,
 			);
 			path = HudView;
-			sourceTree = "<group>";
-		};
-		94EED5FF2238EAFD00612DAB /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				94EED6002238EB0B00612DAB /* Color.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		A131E34E56C3A8073A6BEDA6 /* Frameworks */ = {
@@ -432,7 +424,7 @@
 				7D89BD3A2233A087009B3916 /* AppDelegate.swift in Sources */,
 				944773532237EC2200FE8370 /* Custom+UIView.swift in Sources */,
 				94EED5FC2238E9FD00612DAB /* HudView.swift in Sources */,
-				94EED6012238EB0B00612DAB /* Color.swift in Sources */,
+				94CCD58C223A3BBE00438E5C /* Array+Addition.swift in Sources */,
 				94EED5FE2238EA7700612DAB /* UIApplication+Hierarchy.swift in Sources */,
 				7D89BD672233C863009B3916 /* ListViewModelProtocol.swift in Sources */,
 				9443A4E92237B25100F9D475 /* TableView+Addition.swift in Sources */,

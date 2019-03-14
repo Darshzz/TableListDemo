@@ -59,16 +59,5 @@ class ListViewModel: ListViewModelProtocol {
     func filterArrayItems() {
         let emptyItems = dataModel?.rows?.filter({ $0.title == nil  && $0.imageHref == nil })
         _ = emptyItems?.map({ dataModel?.rows?.remove(object: $0) })
-        
     }
-}
-
-extension Array where Element: Equatable {
-    
-    // Remove first collection element that is equal to the given `object`:
-    mutating func remove(object: Element) {
-        guard let index = index(of: object) else {return}
-        remove(at: index)
-    }
-    
 }
